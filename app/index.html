@@ -8,7 +8,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>standby website</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <!--<meta name="viewport" content="width=device-width">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -26,22 +27,19 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div class="container">
-
+        <div class="container-fluid">
 
           <div class="header">
-            <div class="col-lg-12">
+            <div class="col-md-12">
               <img src="images/logo.png" class="img-responsive" alt="Logo StandBy"/>
             </div>
           </div>
 
-
-          <div class="row">
-            <div class="col-lg-12">
+          <div id="banner" class="row">
+            <div class="col-md-12">
               <img src="images/fireman.png" class="img-responsive" alt="Fireman"/>
             </div>
           </div>
-
 
           <div id="tagline" class="row">
             <h3>
@@ -51,9 +49,8 @@
             <button class="btn btn-lg btn-success">Neem contact met ons op</button>
           </div>
 
-
-          <div class="row">
-            <div class="col-lg-3 info">
+          <div class="row info-row">
+            <div class="col-md-3 info">
               <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
               <h4>Optimale beschikbaarheid</h4>
               <p>
@@ -65,14 +62,88 @@
                 Of regel juist je beschikbaarheid via de Standby-agenda of via Google Calendar, Outlook of iCloud.
               </p>
             </div>
-            <div class="col-lg-3"></div>
-            <div class="col-lg-6">
-              <!--<img src="images/picfather.png" class="img-responsive" alt="Father picture"/>-->
+            <div class="col-md-3 info">
+              <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
+              <h4>Optimale beschikbaarheid</h4>
+              <p>
+                Een onverwachte meeting of een ziek kind… Of juist het vervallen van een sportwedstrijd of eerder
+                klaar met werken: Onverwachte gebeurtenissen leiden tot verandering in beschikbaarheid.
+              </p>
+              <p>
+                Met Standby stel je jezelf buiten dienst via telefoon, smartphone, pager, tablet, laptop of pc.
+                Of regel juist je beschikbaarheid via de Standby-agenda of via Google Calendar, Outlook of iCloud.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img src="images/picfather.png" class="img-responsive" alt="Father picture"/>
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-4 col-md-offset-4">
+                <img src="images/devices.png" class="img-responsive" alt="Multi platform devices"/>
+                <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
+                <h4>Multi platform</h4>
+                <h3>
+                  Smartphone, pc, tablet... Het zijn slechts een paar voorbeelden van de devices waarop
+                  Standby kan draaien.
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="row info-row">
+            <div class="col-md-6">
+              <img src="images/picresque.png" class="img-responsive" alt="Resque in action"/>
+            </div>
+            <div class="col-md-3 info">
+              <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
+              <h4>Optimale beschikbaarheid</h4>
+              <p>
+                Een onverwachte meeting of een ziek kind… Of juist het vervallen van een sportwedstrijd of eerder
+                klaar met werken: Onverwachte gebeurtenissen leiden tot verandering in beschikbaarheid.
+              </p>
+              <p>
+                Met Standby stel je jezelf buiten dienst via telefoon, smartphone, pager, tablet, laptop of pc.
+                Of regel juist je beschikbaarheid via de Standby-agenda of via Google Calendar, Outlook of iCloud.
+              </p>
+            </div>
+            <div class="col-md-3 info">
+              <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
+              <h4>Optimale beschikbaarheid</h4>
+              <p>
+                Een onverwachte meeting of een ziek kind… Of juist het vervallen van een sportwedstrijd of eerder
+                klaar met werken: Onverwachte gebeurtenissen leiden tot verandering in beschikbaarheid.
+              </p>
+              <p>
+                Met Standby stel je jezelf buiten dienst via telefoon, smartphone, pager, tablet, laptop of pc.
+                Of regel juist je beschikbaarheid via de Standby-agenda of via Google Calendar, Outlook of iCloud.
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-4 col-md-offset-4">
+                <img src="images/duco.png" class="img-responsive" alt="Get in touch with sales"/>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="footer">
+            <div class="col-md-12">
+              <p>Powered by ASK Community Systems   |   standby.ask-cs.nl   |   Coolhaven 236 - 3024 AN Rotterdam   |   Telefoon: 010 225 01 30</p>
+            </div>
+          </div>
+
+
           
         </div>
+
+
+
 
 
 
@@ -106,18 +177,18 @@
 
 
         <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
-        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
-        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
-        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
-        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
-        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
-        <script src="bower_components/sass-bootstrap/js/button.js"></script>
-        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
-        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
-        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
-        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
-        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+        <!--<script src="bower_components/sass-bootstrap/js/affix.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/alert.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/dropdown.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/tooltip.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/modal.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/transition.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/button.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/popover.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/carousel.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/collapse.js"></script>-->
+        <!--<script src="bower_components/sass-bootstrap/js/tab.js"></script>-->
         <!-- endbuild -->
 
 
