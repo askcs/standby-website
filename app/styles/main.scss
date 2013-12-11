@@ -9,32 +9,36 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+
+
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
   background-image: url("../images/bg.png");
 
   color: white;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+
+
+//.header,
+//.marketing,
+//.footer {
+//    padding-left: 15px;
+//    padding-right: 15px;
+//}
+
 
 /* Custom page header */
 .header {
   text-align: center;
+  margin-top: -20px;
   img {
     border: none;
     display: block;
     margin:0 auto;
   }
 }
+
 
 #banner {
   margin-bottom: 20px;
@@ -44,6 +48,7 @@ body {
   }
 }
 
+
 #tagline {
   text-align: center;
   margin-bottom: 60px;
@@ -51,46 +56,92 @@ body {
     color: white;
     font-weight: 100;
     letter-spacing:1px;
+    margin-bottom: 25px;
   }
-  .btn-success {
-    background-color: #4e8250;
+  .btn-cta {
+    background-color: #433c2d; // #4e8250;
     border: none;
     padding: 15px 20px;
     font-weight: 200;
-  }
-}
-
-.info-row {
-  display: block;
-  margin: 0 auto;
-  .info {
-    text-align: center;
-    h4 {
-      font-family: Georgia;
-      font-weight: 100;
-      font-size: 24px;
+    color: white;
+    &:hover {
+      background-color: #4e8250;
     }
   }
 }
 
-#devices {
-  text-align: center;
+
+.info-row {
+  display: block;
+  margin: 0 auto;
+  max-width: 1170px;
 }
 
-.row {
-  margin-bottom: 40px;
+.info-pic {
+  margin-bottom: 30px;
 }
+
+.info {
+  text-align: center;
+  margin-bottom: 40px;
+  img {
+    margin:0 0 -30px -30px;
+  }
+  h4 {
+    font-family: Georgia;
+    font-weight: 100;
+    font-size: 24px;
+  }
+  p {
+    text-align: justify;
+    font-size: 12px;
+  }
+}
+
+
+#devices {
+  #devices-image {
+    display: block;
+    margin:0 auto;
+  }
+  .info {
+    margin-top: -60px;
+    p {
+      font-size: 24px;
+      color: white;
+      font-weight: 100;
+      text-align: center;
+    }
+  }
+}
+
+
+#sales {
+  margin-bottom: -20px;
+  img {
+    margin-left: -25px;
+  }
+}
+
+
+.row {
+  margin-bottom: 50px;
+}
+
 
 /* Custom page footer */
 .footer {
-    padding-top: 19px;
+  padding-top: 19px;
   p {
     text-align: center;
+    font-weight: normal;
   }
 }
 
 
 .container-fluid {
+  margin:0;
+  padding:0;
   max-width: 1170px;
   display: block;
   margin: 0 auto;
