@@ -1,1 +1,3 @@
-console.log('\'Allo \'Allo!');
+$(document).ready(function() {
+  $('.lightbox').magnificPopup({type:'image'});
+});

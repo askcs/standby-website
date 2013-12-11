@@ -49,6 +49,37 @@ body {
 }
 
 
+#thumbs {
+  margin: 70px 0 100px 0;
+  overflow: hidden;
+  display: block;
+  height: 100%;
+  ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    width: 700px;
+    display: block;
+    margin: 0 auto;
+    li {
+      display: inline;
+      float: left;
+      width: 210px;
+      a{
+      }
+      img {
+      }
+    }
+    .gutter {
+      width: 30px;
+    }
+    .gutter-wide {
+      width: 40px;
+    }
+  }
+}
+
+
 #tagline {
   text-align: center;
   margin-bottom: 60px;
@@ -79,6 +110,10 @@ body {
 
 .info-pic {
   margin-bottom: 30px;
+  img {
+    display: block;
+    margin:0 auto;
+  }
 }
 
 .info {
@@ -140,7 +175,6 @@ body {
 
 
 .container-fluid {
-  margin:0;
   padding:0;
   max-width: 1170px;
   display: block;
@@ -153,23 +187,28 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+}
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+/* Responsive: Portrait tablets and up */
+@media screen {
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+}
+@media (max-width: 767px) {
+}
+@media (min-width: 1200px) {
+}
+@media (min-width: 768px) and (max-width: 979px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 480px) {
+  #thumbs {
+    display: none;
+  }
+}
+@media (max-width: 979px) {
+}
+@media (min-width: 980px) {
 }
