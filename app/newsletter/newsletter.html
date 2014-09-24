@@ -1,0 +1,160 @@
+<html>
+<head>
+  <title>StandBy: Newsletter</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+  <style type="text/css">
+    body,#wrap{
+      text-align:center;
+      margin:0;
+      padding-bottom: 20px;
+      background-color: #a83533;
+      background-image: url(https://standby.ask-cs.nl/newsletter/images/bg.png);
+      color: white;
+    }
+    
+    #header{
+      background-color: transparent;
+      margin:0;
+      padding:10px;
+      color: white;
+      font-size:11px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight:normal;
+      text-align:center;
+      text-transform:lowercase;
+      border:none 0 #FFF;
+    }
+
+    #header a,#header a:link,#header a:visited{
+      color: white;
+      text-decoration:underline;
+      font-weight:normal;
+    }
+
+    #layout{
+      margin:0 auto;
+      text-align:center;
+      font-family: Georgia, Verdana, Arial, sans-serif;
+      color:#404040;
+      line-height:160%;
+      font-size:16px;
+    }
+
+    #appointment{
+      color: #000000;
+      border-top:1px solid white;
+      font-size:18px;
+      font-weight:normal;
+      font-family: Georgia, Verdana, Arial, sans-serif;
+      text-align:center;
+      padding:0 0 40px 0;
+    }
+
+    #lead_content p {
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: lighter !important;
+    }
+
+    .primary-heading{
+      font-size:54px;
+      color: white;
+      font-weight: lighter !important;
+      font-family: Georgia, Verdana, Arial, sans-serif;
+      line-height:120%;
+      margin:10px 0;
+    }
+
+    .secondary-heading{
+      color: black;
+      font-size:24px;
+      font-weight:lighter !important;
+      font-style:normal;
+      font-family: Georgia, Verdana, Arial, sans-serif;
+      margin:30px 0 10px 0;
+    }
+
+    #footer{
+      background-color:white;
+      padding:20px;
+      font-size:10px;
+      color: black;
+      line-height:100%;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align:center;
+    }
+
+    #footer a{
+      color: black;
+      text-decoration:underline;
+      font-weight:normal;
+    }
+
+    a,a:link,a:visited {
+      text-decoration:underline;
+      font-weight:normal;
+    }
+  </style>
+</head>
+<body class="background">
+<div id="wrap" class="background">
+  <table id="layout" border="0" cellspacing="0" cellpadding="0" width="600" class="layout_background">
+    <tr>
+      <td id="header" mc:edit="header" colspan="3">
+        <!--*|IFNOT:ARCHIVE_PAGE|*-->
+        <span>
+          Email not displaying correctly?
+          <a href="*|ARCHIVE|*" target="_blank">View it in your browser.</a>
+        </span>
+        <!-- *|END:IF|* -->
+      </td>
+    </tr>
+    <tr>
+      <td id="lead_image" colspan="3">
+        <img src="https://standby.ask-cs.nl/newsletter/images/logo.png" alt="StandBy Logo"/>
+      </td>
+    </tr>
+    <tr>
+      <td id="lead_content" mc:edit="main" colspan="3">
+
+        <img src="https://standby.ask-cs.nl/newsletter/images/picresque.png" alt="Fireman Picture"/>
+
+        <br/><br/>
+
+        <h1 class="primary-heading">Time for sending some newsletters!</h1>
+        <p>This is just a sample mockup newsletter template, for any email marketing purposes.
+          MailChimp offers a default free account which is capable of sending many free emails daily.
+          Clearly this approach can certainly be used for TeamUp, Ask and/or AskFast corporate
+          websites as well.</p>
+
+        <br/>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" id="appointment">
+        <h2 class="secondary-heading">For any assistance or help please contact with</h2>
+        <p>Ask, Design Team
+          <br>Rotterdam, the Netherlands
+          <br>Any time during the weekdays</p>
+      </td>
+    </tr>
+    <tr>
+      <td id="footer" mc:edit="footer" colspan="3" class="background">
+        <p>
+          <a href="*|UNSUB|*">Unsubscribe</a> *|EMAIL|* |
+          <a href="*|UPDATE_PROFILE|*">Update your profile</a> |
+          <a href="*|FORWARD|*">Forward to a friend</a>
+        </p>
+        <!--*|IFNOT:ARCHIVE_PAGE|*-->
+        <p>*|LIST:DESCRIPTION|*</p>
+        <p>*|HTML:LIST_ADDRESS_HTML|*</p>
+        <!-- *|END:IF|* -->
+        <p>Copyright (C) 2014, Ask Community Systems. All rights reserved.</p>
+      </td>
+    </tr>
+  </table>
+</div>
+<span style="padding: 0px;"></span>
+</body>
+</html>
