@@ -18,15 +18,84 @@
         <!-- Magnific Popup core CSS file -->
         <link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css">
 
+
+      <script>
+        function IsEmail(email) {
+          var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+          return regex.test(email);
+        }
+
+        function sendMail(){
+          var contactName = $.trim($("#contactName").val());
+          var contactEmail = $.trim($("#contactEmail").val());
+          var contactSubject = $.trim($("#contactSubject").val());
+          var message = $.trim($("#message").val());
+
+          var errorColor = "#a83533";
+          var errorFontColor = "white";
+          var rightColor = "white";
+          var rightFontColor = "#433c2d";
+
+          var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
+          sendMailURL += "?contactName="+contactName +
+                  "&contactEmail="+contactEmail+
+                  "&contactSubject="+contactSubject+
+                  "&message="+message+"\nStandBy promo site";
+          if(contactName == '' ){
+            alert("Please fill in your name.");
+            $("#contactName").css("background-color" ,errorColor).css("color" ,errorFontColor);
+            return ;
+          }else{
+            $("#contactName").css("background-color" ,rightColor).css("color" ,rightFontColor);
+          }
+          if(contactEmail == '' ){
+            alert("Please fill in your email address.");
+            $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
+            return ;
+          }else{
+            if(!IsEmail(contactEmail)){
+              alert("Invalid email adress.");
+              $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
+              return;
+            }else{
+              $("#contactEmail").css("background-color" ,rightColor).css("color" ,rightFontColor);
+            }
+          }
+          if(contactSubject == '' ){
+            alert("Please fill in a subject.");
+            $("#contactSubject").css("background-color" ,errorColor).css("color" ,errorFontColor);
+            return ;
+          }else{
+            $("#contactSubject").css("background-color" ,rightColor).css("color" ,rightFontColor);
+          }
+          if(message == '' ){
+            alert("Please write a message.");
+            $("#message").css("background-color" ,errorColor).css("color" ,errorFontColor);
+            return ;
+          }else{
+            $("#message").css("background-color" ,rightColor).css("color" ,rightFontColor);
+          }
+
+          $.ajax({
+            url: sendMailURL,
+          }).done(function( data ) {
+            console.log(data);
+            alert("Message is sent!");
+          }).fail(function( error){
+            console.log(error);
+            alert("Message is sent!");
+          });
+        }
+      </script>
     </head>
     <body>
       <!--[if lt IE 9]>
           <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-      <div class="container-fluid">
+      <div class="container">
 
-        <div class="header">
+        <div class="header row">
           <div id="language">
               <span><a href="index.html"><img src="images/6da6bb87.nl.png"></a></span>
               <span><img src="images/74d59d88.gb.png"></span>
@@ -40,12 +109,11 @@
           <div class="col-md-8 col-md-offset-2">
             <img src="images/7e2124f7.fireman.png" class="img-responsive" alt="Fireman">
           </div>
-          </div>
         </div>
 
         <div id="tagline" class="row">
           <div class="col-md-8 col-md-offset-2">
-            <h3>Most of the volunteers at your organisation are combining their activities with a paying job and a private life. This is quite challenging for their availability and readiness.</h3>
+            <h3>!!!Most of the volunteers at your organisation are combining their activities with a paying job and a private life. This is quite challenging for their availability and readiness.</h3>
             <a class="btn btn-lg btn-cta" href="mailto:sales@ask-cs.com?subject=StandBy">Contact us</a>
           </div>
         </div>
@@ -74,13 +142,24 @@
           </div>
         </div>
 
-        <div class="row info-row">
-
-          <div class="col-md-6 info-pic col-md-push-6">
+        <div class="row info-row titleStyle2">
+          <div class="col-md-6 info-pic">
             <img src="images/6f87923d.picfather-en.png" class="img-responsive" alt="Father picture">
           </div>
+          <div class="col-md-3">
+            <h4>StandBy for public safety</h4>
+            <p>For the (voluntary) first responders of the fire brigade and Search & Rescue (SAR) is StandBy the readiness and communication system that works on both smartphone and smartpager and proactively guards the readiness of the post. On a emergency dispatch level, regional level or state level StandBy shows the current readiness before an incident is reported. StandBy can indepedently communicate by several channels to several distinctive user groups.</p>
+            <p class="knrmCase">KNRM relies already for years on the StandBy availability system to ensure availability of the rescuers needed and within the proximity of the station (Geo-fence). <br> <a href="http://ask-cs.com/cases.html#slide-4" target="_blank">Read more...</a></p>
+          </div>
+          <div class="col-md-3">
+            <h4>CERT (BHV) and Loneworker</h4>
+            <p>With StandBy for company emergency response teams (CERT) and loneworkers these first responding professionals also can rely on an alarming and communication system during incidents. Falck BHV is already using this application in The Netherlands as StandBy BHV.</p>
+          </div>
+        </div>
 
-          <div class="col-md-3 col-md-pull-6 info">
+        <div class="row info-row">
+
+          <div class="col-md-3">
             <img src="images/5384057e.icons_optimal.png" alt="Optimale beschikbaarheid">
             <h4>High availability</h4>
             <p>An unexpected meeting or a sick child… Or even the cancellation of a sporting match or finishing work earlier: Unexpected occurrences lead to a change in availability.</p>
