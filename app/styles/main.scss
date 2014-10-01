@@ -57,12 +57,20 @@ a, a:hover, a:visited, a:active {
 
 #banner {
   margin-bottom: 20px;
-  img {
+  .firemanImg {
     display: block;
     margin: 0 auto;
+    position: relative;
   }
+  clear: both;
 }
 
+.congressMessage {
+  position: absolute;
+  z-index: 5;
+  margin: -50px;
+  clear: both;
+}
 
 #thumbs {
   margin: 70px 0 100px 0;
