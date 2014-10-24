@@ -238,16 +238,16 @@
         <div class="row info-row titleStyle2">
 
 
-          <div class="col-md-6 info-pic">
+          <div class="col-md-6 col-sm-12 info-pic">
             <img src="images/picfather.png" class="img-responsive" alt="Foto vader"/>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6">
             <h4>StandBy voor OOV</h4>
             <p>Voor de vrijwillige hulpverleners bij Brandweer, KNRM en Reddingsbrigade is StandBy voor OOV het paraatheids- en communicatiesysteem dat werkt op zowel smartphone en smartpager en de paraatheid van de post proactief bewaakt. Meldkamer en Veiligheidsregio zien de actuele paraatheid vóór een alarmering. StandBy kan zelfstandig communiceren via verschillende kanalen en/of naar verschillende gebruikersgroepen.</p>
           </div>
 
-          <div class="col-md-3 knrm">
+          <div class="col-md-3 col-sm-6 knrm">
             <img src="images/knrmLogo.png" class="img-responsive" alt="KNRM"/>
             <p>Standby is al jaren actief bij de KNRM. Lees hier hoe de samenwerking ervoor zorgt dat er genoeg redders bij de KRNM paraat zijn.<br><br> <a href="http://ask-cs.com/cases.html#slide-4" target="_blank">Lees meer...</a></p>
           </div>
@@ -257,7 +257,7 @@
 
         <div class="row info-row">
 
-          <div class="col-md-4 info">
+          <div class="col-md-4 col-sm-4 info">
             <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
             <h4>Optimale<br>beschikbaarheid</h4>
             <p>Een onverwachte meeting of een ziek kind… Of juist het vervallen van een sportwedstrijd of eerder
@@ -266,7 +266,7 @@
               Of regel juist je beschikbaarheid via de StandBy-agenda of via Google Calendar, Outlook of iCloud.</p>
           </div>
 
-          <div class="col-md-4 info">
+          <div class="col-md-4 col-sm-4 info">
             <img src="images/icons_minimal.png" alt="Minimale regeldruk"/>
             <h4>Minimale<br>regeldruk</h4>
             <p>Om de motivatie zo hoog mogelijk te houden en belasting van vrijwilligers zo veel mogelijk te beperken,
@@ -276,7 +276,7 @@
               de geografische locatie van de vrijwilliger.</p>
           </div>
 
-          <div class="col-md-4 info">
+          <div class="col-md-4 col-sm-4 info">
             <img src="images/icons_proactive.png" alt="Proactieve beschikbaarheidsbewaking"/>
             <h4>Proactieve<br>beschikbaarheidsbewaking</h4>
             <p>Beschikbaarheidsbewaking van StandBy informeert zo ver mogelijk van tevoren vrijwilligers en teamleiders over een acute of mogelijke, toekomstige onderbezetting. Eventueel beschikbare vrijwilligers worden door StandBy zelfstandig benaderd en gevraagd of zij dit tekort willen oplossen. Is er niemand extra beschikbaar dan informeert StandBy de teamleiders over dit voor StandBy onoplosbare tekort. De teamleiders kunnen dan zelf de laatste maatregelen nemen.</p>
@@ -299,7 +299,7 @@
 
 
 
-          <div class="col-md-3 info">
+          <div class="col-md-3 col-sm-6 info">
             <img src="images/icons_inzicht.png" alt="Inzicht in paraatheid"/>
             <h4>Inzicht in paraatheid</h4>
             <p>Doel van uw organisatie is om zo snel mogelijk ter plaatse te zijn bij een incident, binnen de norm.
@@ -311,7 +311,7 @@
               onderbezetting per periode.</p>
           </div>
 
-          <div class="col-md-3 info">
+          <div class="col-md-3 col-sm-6 info">
             <img src="images/icons_bespaar.png" alt="Bespaar kosten"/>
             <h4>Bespaar kosten</h4>
             <p>StandBy bespaart kosten. Door efficiënter te plannen en administreren dalen de administratieve lasten.
@@ -322,7 +322,7 @@
               de flexibiliteit die StandBy biedt.</p>
           </div>
 
-          <div class="col-md-6 info-pic">
+          <div class="col-md-6 col-sm-12 info-pic">
             <img src="images/picresque.png" class="img-responsive" alt="Redding in actie"/>
           </div>
 
@@ -335,16 +335,20 @@
             <a class="btn btn-lg btn-cta downloadBtn col-md-12" href="docs/Safety!SlimVerbindenBijCrisiscommunicatieASK-CommunitySystems.pdf" target="_blank">Artikel Slim Verbinden</a>
             <a class="btn btn-lg btn-cta downloadBtn col-md-12" href="docs/Whitepaper_zelforganisatie_bij_de_brandweer.pdf" target="_blank">Whitepaper zelforganisatie brandweer</a>
           </div>
-          <div id="contactform" class="col-md-4">
-            <h4>Contactformulier</h4>
-            <input id="contactName" class="contactInput col-xs-12" type="text" placeholder="Naam">
-            <input id="contactEmail" class="contactInput col-xs-12" type="text" placeholder="E-mailadres">
-            <textarea id="message" class="contactTextarea col-xs-12" rows="8" placeholder="Bericht">
-            </textarea>
-            <button class="btn btn-lg btn-cta ng-binding col-md-12" type="button" onclick="sendMail()" >Verzenden</button>
-            <h4>Bel me terug</h4>
-            <input id="phoneNumber" class="contactInput col-xs-8" type="text" placeholder="Telefoonnummer">
-            <button class="btn btn-lg btn-cta ng-binding col-md-4" type="button" onclick="sendPhoneNumber()" >Verzenden</button>
+          <div id="contactform" class="col-md-4 col-sm-12 row">
+            <div id="normalForm" class="col-md-12 col-sm-6">
+              <h4>Contactformulier</h4>
+              <input id="contactName" class="contactInput col-xs-12" type="text" placeholder="Naam">
+              <input id="contactEmail" class="contactInput col-xs-12" type="text" placeholder="E-mailadres">
+              <textarea id="message" class="contactTextarea col-xs-12" rows="8" placeholder="Bericht">
+              </textarea>
+              <button class="btn btn-lg btn-cta ng-binding col-md-12" type="button" onclick="sendMail()" >Verzenden</button>
+            </div>
+            <div id="callForm" class="col-md-12 col-sm-6">
+              <h4>Bel me terug</h4>
+              <input id="phoneNumber" class="contactInput col-xs-8" type="text" placeholder="Telefoonnummer">
+              <button class="btn btn-lg btn-cta ng-binding col-md-4" type="button" onclick="sendPhoneNumber()" >Verzenden</button>
+            </div>
           </div>
           <div id="twitter" class="col-md-4">
             <a class="twitter-timeline" height="600"  href="https://twitter.com/ASK_StandBy" data-widget-id="514075152045182976" data-chrome="transparent nofooter noscrollbar noborders" data-link-color="#FFFFFF">Tweets van @ASK_StandBy</a>
