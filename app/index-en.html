@@ -43,19 +43,19 @@
                 "&contactEmail="+contactEmail+
                 "&message="+message+" \nStandBy promo site";
                 if(contactName == '' ){
-                    alert("Vul alstublieft uw naam in.");
+                    alert("Please fill in your name.");
                     $("#contactName").css("background-color" ,errorColor).css("color" ,errorFontColor);
                     return ;
                 }else{
                     $("#contactName").css("background-color" ,rightColor).css("color" ,rightFontColor);
                 }
                 if(contactEmail == '' ){
-                    alert("Vul alstublieft uw emailadres in.");
+                    alert("Please fill in your email address.");
                     $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
                     return ;
                 }else{
                     if(!IsEmail(contactEmail)){
-                        alert("Uw emailadres is ongeldig.");
+                        alert("Invalid email address.");
                         $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
                         return;
                     }else{
@@ -63,7 +63,7 @@
                     }
                 }
                 if(message == '' ){
-                    alert("Vul alstublieft een bericht in.");
+                    alert("Please write a message.");
                     $("#message").css("background-color" ,errorColor).css("color" ,errorFontColor);
                     return ;
                 }else{
@@ -74,10 +74,10 @@
                     url: sendMailURL
                 }).done(function( data ) {
                     console.log(data);
-                    alert("Bericht is verzonden!");
+                    alert("Message is sent!");
                 }).fail(function( error){
                     console.log(error);
-                    alert("Bericht is verzonden!");
+                    alert("Message is sent!");
                 });
             }
 
@@ -98,12 +98,12 @@
                 var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
                 sendMailURL += "?phoneNumber="+phoneNumber+" \nStandBy promo site";
                 if(phoneNumber == '' ){
-                    alert("Vul alstublieft uw telefoonnummer in.");
+                    alert("Please fill in your phone number.");
                     $("#phoneNumber").css("background-color" ,errorColor).css("color" ,errorFontColor);
                     return ;
                 }else{
                     if(!IsPhoneNumber(phoneNumber)){
-                        alert("Uw telefoonnummer is ongeldig.");
+                        alert("Invalid phone number.");
                         $("#phoneNumber").css("background-color" ,errorColor).css("color" ,errorFontColor);
                         return;
                     }else{
@@ -116,10 +116,10 @@
                     url: sendMailURL
                 }).done(function( data ) {
                     console.log(data);
-                    alert("Telefoonnummer is verzonden!");
+                    alert("Phone number is sent!!");
                 }).fail(function( error){
                     console.log(error);
-                    alert("Telefoonnummer is verzonden!");
+                    alert("Phone number is sent!");
                 });
             }
 
