@@ -8,3 +8,14 @@ $(document).ready(function() {
     }
   );
 });
+
+$(document).ready(function() {
+  $('.lightbox2').magnificPopup(
+    {
+      type:'iframe',
+      gallery: {
+        enabled: true
+      }
+    }
+  );
+});

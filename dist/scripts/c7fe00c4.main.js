@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".lightbox").magnificPopup({type:"image",gallery:{enabled:!0}})}),$(document).ready(function(){$(".lightbox2").magnificPopup({type:"iframe",gallery:{enabled:!0}})});

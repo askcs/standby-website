@@ -27,10 +27,10 @@
           return regex.test(email);
         }
 
+        //Contact form
         function sendMail(){
           var contactName = $.trim($("#contactName").val());
           var contactEmail = $.trim($("#contactEmail").val());
-          var contactSubject = $.trim($("#contactSubject").val());
           var message = $.trim($("#message").val());
 
           var errorColor = "#a83533";
@@ -41,8 +41,7 @@
           var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
           sendMailURL += "?contactName="+contactName +
                   "&contactEmail="+contactEmail+
-                  "&contactSubject="+contactSubject+
-                  "&message="+message+"\nStandBy promo site";
+                  "&message="+message+" \nStandBy promo site";
           if(contactName == '' ){
             alert("Vul alstublieft uw naam in.");
             $("#contactName").css("background-color" ,errorColor).css("color" ,errorFontColor);
@@ -63,13 +62,6 @@
               $("#contactEmail").css("background-color" ,rightColor).css("color" ,rightFontColor);
             }
           }
-          if(contactSubject == '' ){
-            alert("Vul alstublieft een onderwerp in.");
-            $("#contactSubject").css("background-color" ,errorColor).css("color" ,errorFontColor);
-            return ;
-          }else{
-            $("#contactSubject").css("background-color" ,rightColor).css("color" ,rightFontColor);
-          }
           if(message == '' ){
             alert("Vul alstublieft een bericht in.");
             $("#message").css("background-color" ,errorColor).css("color" ,errorFontColor);
@@ -79,7 +71,7 @@
           }
 
           $.ajax({
-            url: sendMailURL,
+            url: sendMailURL
           }).done(function( data ) {
             console.log(data);
             alert("Bericht is verzonden!");
@@ -88,7 +80,101 @@
             alert("Bericht is verzonden!");
           });
         }
+
+        //Call me back
+        function IsPhoneNumber(number) {
+          var regex = /^([\s0-9+-]{10,})+$/;
+          return regex.test(number);
+        }
+
+        function sendPhoneNumber(){
+          var phoneNumber = $.trim($("#phoneNumber").val());
+
+          var errorColor = "#a83533";
+          var errorFontColor = "white";
+          var rightColor = "white";
+          var rightFontColor = "#433c2d";
+
+          var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
+          sendMailURL += "?phoneNumber="+phoneNumber+" \nStandBy promo site";
+          if(phoneNumber == '' ){
+            alert("Vul alstublieft uw telefoonnummer in.");
+            $("#phoneNumber").css("background-color" ,errorColor).css("color" ,errorFontColor);
+            return ;
+          }else{
+            if(!IsPhoneNumber(phoneNumber)){
+              alert("Uw telefoonnummer is ongeldig.");
+              $("#phoneNumber").css("background-color" ,errorColor).css("color" ,errorFontColor);
+              return;
+            }else{
+              $("#phoneNumber").css("background-color" ,rightColor).css("color" ,rightFontColor);
+            }
+          }
+
+
+          $.ajax({
+            url: sendMailURL
+          }).done(function( data ) {
+            console.log(data);
+            alert("Telefoonnummer is verzonden!");
+          }).fail(function( error){
+            console.log(error);
+            alert("Telefoonnummer is verzonden!");
+          });
+        }
+
       </script>
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+      <script>
+        var hideTwitterAttempts = 0;
+        function hideTwitterBoxElements() {
+          setTimeout( function() {
+            if ( $('[id*=twitter]').length ) {
+              $('[id*=twitter]').each( function(){
+                var ibody = $(this).contents().find( 'body' );
+
+                if ( ibody.find( '.timeline .stream .h-feed li.tweet' ).length ) {
+                  //ibody.find( '.customisable-border' ).css( 'border', 0 );
+                  ibody.find('.timeline-header').css('border-bottom', '1px solid #fff').css('padding', '10px 0 9px');
+                  ibody.find('.customisable-highlight').css('color', '#fff').css('font-weight', 'normal').css('font-family', '"Helvetica Neue",Helvetica,Arial,sans-serif');
+                  //ibody.find( '.timeline' ).css( 'background-color', '#004A7B' ); //theme: shell: background:
+                  //ibody.find( 'ol.h-feed' ).css( 'background-color', '#0575A1' ); //theme: tweets: background:
+                  //ibody.find( 'ol.h-feed' ).css( 'border-radius', '5px 5px 5px 5px' );
+                  ibody.find( 'li.tweet' ).css( 'border-bottom', '1px dotted #FFFFFF' ); //theme: tweets: color:
+                  //ibody.find( 'li.tweet' ).css( 'color', '#FFFFFF' ); //theme: tweets: color:
+                  //ibody.find( '.customisable:link' ).css( 'color', '#07E0EB' ); //theme: tweets: links:
+                  ibody.find( '.p-nickname').css( 'color', '#474747' );
+                  ibody.find('.retweet-credit' ).css( 'color', '#474747' );
+                  ibody.find( '.footer' ).css( 'visibility', 'hidden' ); //hide reply, retweet, favorite images
+                  ibody.find( '.footer' ).css( 'min-height', 0 ); //hide reply, retweet, favorite images
+                  ibody.find( '.footer' ).css( 'height', 0 ); //hide reply, retweet, favorite images
+                  //ibody.find( '.avatar' ).css( 'height', 0 ); //hide avatar
+                  //ibody.find( '.avatar' ).css( 'width', 0 ); //hide avatar
+                  //ibody.find( '.p-nickname' ).css( 'font-size', 0 ); //hide @name of tweet
+                  //ibody.find( '.p-nickname' ).css( 'visibility', 'hidden' ); //hide @name of tweet
+                  ibody.find( '.e-entry-content' ).css( 'margin', '-25px 0px 0px 0px' ); //move tweet up (over @name of tweet)
+                  ibody.find( '.dt-updated' ).css( 'color', '#433c2d' ); //theme: tweets: links:
+                  //ibody.find( '.full-name' ).css( 'margin', '0px 0px 0px -35px' ); //move name of tweet to left (over avatar)
+                  //ibody.find( 'h1.summary' ).replaceWith( '<h1 class="summary"><a class="customisable-highlight" title="Tweets from fundSchedule" href="https://twitter.com/fundschedule" style="color: #FFFFFF;">fundSchedule</a></h1>' ); //replace Tweets text at top
+                  ibody.find( '.p-name' ).css( 'color', '#433c2d').css('font-weight', 'bold'); //theme: tweets: links:
+                }
+/*                else {
+                  $(this).hide();
+                }*/
+              });
+            }
+            hideTwitterAttempts++;
+            if ( hideTwitterAttempts < 3 ) {
+              hideTwitterBoxElements();
+            }
+          }, 1500);
+        }
+
+        // somewhere in your code after html page load
+        hideTwitterBoxElements();
+      </script>
+
     </head>
     <body>
       <!--[if lt IE 9]>
@@ -109,15 +195,15 @@
 
         <div id="banner" class="row">
           <div class="col-md-8 col-md-offset-2">
-            <img src="images/fireman.png" class="img-responsive firemanImg" alt="Brandweerman"/>
+            <div class="video-container">
+              <iframe width="560" height="315" src="//www.youtube.com/embed/xJ_MUlHAneQ" frameborder="0" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
         <div id="tagline" class="row">
           <div class="col-md-8 col-md-offset-2">
-            <h3>Het overgrote deel van uw vrijwilligers combineert de werkzaamheden bij uw organisatie veelal met én
-              een betaalde baan én een privéleven. Een flinke uitdaging voor de beschikbaarheid en paraatheid.</h3>
-            <a class="btn btn-lg btn-cta" href="#contactform">Neem contact met ons op</a>
+            <a class="btn btn-lg btn-cta popup-youtube lightbox2" href="https://www.youtube.com/watch?v=HkaryQPNcxA">Bekijk de hele video</a>
           </div>
         </div>
 
@@ -147,22 +233,25 @@
 
         <div class="row info-row titleStyle2">
 
-          <div class="col-md-6 col-md-offset-1 info-pic">
+          <div class="col-md-6 col-sm-12 info-pic">
             <img src="images/picfather.png" class="img-responsive" alt="Foto vader"/>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-3 col-sm-6">
             <h4>StandBy voor OOV</h4>
             <p>Voor de vrijwillige hulpverleners bij Brandweer, KNRM en Reddingsbrigade is StandBy voor OOV het paraatheids- en communicatiesysteem dat werkt op zowel smartphone en smartpager en de paraatheid van de post proactief bewaakt. Meldkamer en Veiligheidsregio zien de actuele paraatheid vóór een alarmering. StandBy kan zelfstandig communiceren via verschillende kanalen en/of naar verschillende gebruikersgroepen.</p>
-            <p class="knrmCase">KNRM vertrouwt al jaren op het StandBy paraatheids- en communicatiesysteem om er voor te zorgen er genoeg redders beschikbaar én in de buurt zijn. <br> <a href="http://ask-cs.com/cases.html#slide-4" target="_blank">Lees meer...</a></p>
           </div>
 
+          <div class="col-md-3 col-sm-6 knrm">
+            <img src="images/knrmLogo.png" class="img-responsive" alt="KNRM"/>
+            <p>Standby is al jaren actief bij de KNRM. Lees hier hoe de samenwerking ervoor zorgt dat er genoeg redders bij de KRNM paraat zijn.<br><br> <a href="http://ask-cs.com/cases.html#slide-4" target="_blank">Lees meer...</a></p>
+          </div>
 
         </div>
 
         <div class="row info-row">
 
-          <div class="col-md-4 info">
+          <div class="col-md-4 col-sm-4 info">
             <img src="images/icons_optimal.png" alt="Optimale beschikbaarheid"/>
             <h4>Optimale<br>beschikbaarheid</h4>
             <p>Een onverwachte meeting of een ziek kind… Of juist het vervallen van een sportwedstrijd of eerder
@@ -171,7 +260,7 @@
               Of regel juist je beschikbaarheid via de StandBy-agenda of via Google Calendar, Outlook of iCloud.</p>
           </div>
 
-          <div class="col-md-4 info">
+          <div class="col-md-4 col-sm-4 info">
             <img src="images/icons_minimal.png" alt="Minimale regeldruk"/>
             <h4>Minimale<br>regeldruk</h4>
             <p>Om de motivatie zo hoog mogelijk te houden en belasting van vrijwilligers zo veel mogelijk te beperken,
@@ -181,7 +270,7 @@
               de geografische locatie van de vrijwilliger.</p>
           </div>
 
-          <div class="col-md-4 info">
+          <div class="col-md-4 col-sm-4 info">
             <img src="images/icons_proactive.png" alt="Proactieve beschikbaarheidsbewaking"/>
             <h4>Proactieve<br>beschikbaarheidsbewaking</h4>
             <p>Beschikbaarheidsbewaking van StandBy informeert zo ver mogelijk van tevoren vrijwilligers en teamleiders over een acute of mogelijke, toekomstige onderbezetting. Eventueel beschikbare vrijwilligers worden door StandBy zelfstandig benaderd en gevraagd of zij dit tekort willen oplossen. Is er niemand extra beschikbaar dan informeert StandBy de teamleiders over dit voor StandBy onoplosbare tekort. De teamleiders kunnen dan zelf de laatste maatregelen nemen.</p>
@@ -202,11 +291,9 @@
 
         <div class="row info-row">
 
-          <div class="col-md-6 info-pic">
-            <img src="images/picresque.png" class="img-responsive" alt="Redding in actie"/>
-          </div>
 
-          <div class="col-md-3 info">
+
+          <div class="col-md-3 col-sm-6 info">
             <img src="images/icons_inzicht.png" alt="Inzicht in paraatheid"/>
             <h4>Inzicht in paraatheid</h4>
             <p>Doel van uw organisatie is om zo snel mogelijk ter plaatse te zijn bij een incident, binnen de norm.
@@ -218,7 +305,7 @@
               onderbezetting per periode.</p>
           </div>
 
-          <div class="col-md-3 info">
+          <div class="col-md-3 col-sm-6 info">
             <img src="images/icons_bespaar.png" alt="Bespaar kosten"/>
             <h4>Bespaar kosten</h4>
             <p>StandBy bespaart kosten. Door efficiënter te plannen en administreren dalen de administratieve lasten.
@@ -227,6 +314,10 @@
               wordt het juiste aantal vrijwilligers opgeroepen. Tenslotte dalen de opleidingskosten, omdat
               vrijwilligers langer bij u actief blijven. Werk en privé zijn immers makkelijker te combineren door
               de flexibiliteit die StandBy biedt.</p>
+          </div>
+
+          <div class="col-md-6 col-sm-12 info-pic">
+            <img src="images/picresque.png" class="img-responsive" alt="Redding in actie"/>
           </div>
 
         </div>
@@ -238,18 +329,23 @@
             <a class="btn btn-lg btn-cta downloadBtn col-md-12" href="docs/Safety!SlimVerbindenBijCrisiscommunicatieASK-CommunitySystems.pdf" target="_blank">Artikel Slim Verbinden</a>
             <a class="btn btn-lg btn-cta downloadBtn col-md-12" href="docs/Whitepaper_zelforganisatie_bij_de_brandweer.pdf" target="_blank">Whitepaper zelforganisatie brandweer</a>
           </div>
-          <div id="contactform" class="col-md-4">
-            <h4>Contactformulier</h4>
-            <input id="contactName" class="contactInput col-xs-12" type="text" placeholder="Naam">
-            <input id="contactEmail" class="contactInput col-xs-12" type="text" placeholder="E-mail">
-            <input id="contactSubject" class="contactInput col-xs-12" type="text" placeholder="Onderwerp">
-            <textarea id="message" class="contactTextarea col-xs-12" rows="8" placeholder="Bericht" name="message">
-            </textarea>
-            <button class="btn btn-lg btn-cta ng-binding col-md-12" type="button" onclick="sendMail()" >Verzenden</button>
+          <div id="contactform" class="col-md-4 col-sm-12 row">
+            <div id="normalForm" class="col-md-12 col-sm-6">
+              <h4>Contactformulier</h4>
+              <input id="contactName" class="contactInput col-xs-12" type="text" placeholder="Naam">
+              <input id="contactEmail" class="contactInput col-xs-12" type="text" placeholder="E-mailadres">
+              <textarea id="message" class="contactTextarea col-xs-12" rows="8" placeholder="Bericht">
+              </textarea>
+              <button class="btn btn-lg btn-cta ng-binding col-md-12" type="button" onclick="sendMail()" >Verzenden</button>
+            </div>
+            <div id="callForm" class="col-md-12 col-sm-6">
+              <h4>Bel me terug</h4>
+              <input id="phoneNumber" class="contactInput col-xs-8" type="text" placeholder="Telefoonnummer">
+              <button class="btn btn-lg btn-cta ng-binding col-md-4" type="button" onclick="sendPhoneNumber()" >Verzenden</button>
+            </div>
           </div>
           <div id="twitter" class="col-md-4">
-            <h4>Tweets</h4>
-            <a class="twitter-timeline"  href="https://twitter.com/ASK_StandBy" data-widget-id="514075152045182976" data-chrome="transparent noheader nofooter noscrollbar noborders" data-link-color="#FFFFFF">Tweets van @ASK_StandBy</a>
+            <a class="twitter-timeline" height="600"  href="https://twitter.com/ASK_StandBy" data-widget-id="514075152045182976" data-chrome="transparent nofooter noscrollbar noborders" data-link-color="#FFFFFF">Tweets van @ASK_StandBy</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </div>
         </div>
