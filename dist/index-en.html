@@ -13,80 +13,166 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/4868248e.main.css"/>
+        <link rel="stylesheet" href="styles/edab1b1d.main.css"/>
 
         <!-- Magnific Popup core CSS file -->
         <link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css">
 
 
-      <script>
-        function IsEmail(email) {
-          var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-          return regex.test(email);
-        }
-
-        function sendMail(){
-          var contactName = $.trim($("#contactName").val());
-          var contactEmail = $.trim($("#contactEmail").val());
-          var contactSubject = $.trim($("#contactSubject").val());
-          var message = $.trim($("#message").val());
-
-          var errorColor = "#a83533";
-          var errorFontColor = "white";
-          var rightColor = "white";
-          var rightFontColor = "#433c2d";
-
-          var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
-          sendMailURL += "?contactName="+contactName +
-                  "&contactEmail="+contactEmail+
-                  "&contactSubject="+contactSubject+
-                  "&message="+message+"\nStandBy promo site";
-          if(contactName == '' ){
-            alert("Please fill in your name.");
-            $("#contactName").css("background-color" ,errorColor).css("color" ,errorFontColor);
-            return ;
-          }else{
-            $("#contactName").css("background-color" ,rightColor).css("color" ,rightFontColor);
-          }
-          if(contactEmail == '' ){
-            alert("Please fill in your email address.");
-            $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
-            return ;
-          }else{
-            if(!IsEmail(contactEmail)){
-              alert("Invalid email adress.");
-              $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
-              return;
-            }else{
-              $("#contactEmail").css("background-color" ,rightColor).css("color" ,rightFontColor);
+        <script>
+            function IsEmail(email) {
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                return regex.test(email);
             }
-          }
-          if(contactSubject == '' ){
-            alert("Please fill in a subject.");
-            $("#contactSubject").css("background-color" ,errorColor).css("color" ,errorFontColor);
-            return ;
-          }else{
-            $("#contactSubject").css("background-color" ,rightColor).css("color" ,rightFontColor);
-          }
-          if(message == '' ){
-            alert("Please write a message.");
-            $("#message").css("background-color" ,errorColor).css("color" ,errorFontColor);
-            return ;
-          }else{
-            $("#message").css("background-color" ,rightColor).css("color" ,rightFontColor);
-          }
 
-          $.ajax({
-            url: sendMailURL,
-          }).done(function( data ) {
-            console.log(data);
-            alert("Message is sent!");
-          }).fail(function( error){
-            console.log(error);
-            alert("Message is sent!");
-          });
-        }
-      </script>
+            //Contact form
+            function sendMail(){
+                var contactName = $.trim($("#contactName").val());
+                var contactEmail = $.trim($("#contactEmail").val());
+                var message = $.trim($("#message").val());
+
+                var errorColor = "#a83533";
+                var errorFontColor = "white";
+                var rightColor = "white";
+                var rightFontColor = "#433c2d";
+
+                var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
+                sendMailURL += "?contactName="+contactName +
+                "&contactEmail="+contactEmail+
+                "&message="+message+" \nStandBy promo site";
+                if(contactName == '' ){
+                    alert("Please fill in your name.");
+                    $("#contactName").css("background-color" ,errorColor).css("color" ,errorFontColor);
+                    return ;
+                }else{
+                    $("#contactName").css("background-color" ,rightColor).css("color" ,rightFontColor);
+                }
+                if(contactEmail == '' ){
+                    alert("Please fill in your email address.");
+                    $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
+                    return ;
+                }else{
+                    if(!IsEmail(contactEmail)){
+                        alert("Invalid email address.");
+                        $("#contactEmail").css("background-color" ,errorColor).css("color" ,errorFontColor);
+                        return;
+                    }else{
+                        $("#contactEmail").css("background-color" ,rightColor).css("color" ,rightFontColor);
+                    }
+                }
+                if(message == '' ){
+                    alert("Please write a message.");
+                    $("#message").css("background-color" ,errorColor).css("color" ,errorFontColor);
+                    return ;
+                }else{
+                    $("#message").css("background-color" ,rightColor).css("color" ,rightFontColor);
+                }
+
+                $.ajax({
+                    url: sendMailURL
+                }).done(function( data ) {
+                    console.log(data);
+                    alert("Message is sent!");
+                }).fail(function( error){
+                    console.log(error);
+                    alert("Message is sent!");
+                });
+            }
+
+            //Call me back
+            function IsPhoneNumber(number) {
+                var regex = /^([\s0-9+-]{10,})+$/;
+                return regex.test(number);
+            }
+
+            function sendPhoneNumber(){
+                var phoneNumber = $.trim($("#phoneNumber").val());
+
+                var errorColor = "#a83533";
+                var errorFontColor = "white";
+                var rightColor = "white";
+                var rightFontColor = "#433c2d";
+
+                var sendMailURL = "http://ask70.ask-cs.nl/~ask/demo_110907/rpc/sendMail.php";
+                sendMailURL += "?phoneNumber="+phoneNumber+" \nStandBy promo site";
+                if(phoneNumber == '' ){
+                    alert("Please fill in your phone number.");
+                    $("#phoneNumber").css("background-color" ,errorColor).css("color" ,errorFontColor);
+                    return ;
+                }else{
+                    if(!IsPhoneNumber(phoneNumber)){
+                        alert("Invalid phone number.");
+                        $("#phoneNumber").css("background-color" ,errorColor).css("color" ,errorFontColor);
+                        return;
+                    }else{
+                        $("#phoneNumber").css("background-color" ,rightColor).css("color" ,rightFontColor);
+                    }
+                }
+
+
+                $.ajax({
+                    url: sendMailURL
+                }).done(function( data ) {
+                    console.log(data);
+                    alert("Phone number is sent!!");
+                }).fail(function( error){
+                    console.log(error);
+                    alert("Phone number is sent!");
+                });
+            }
+
+        </script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>
+            var hideTwitterAttempts = 0;
+            function hideTwitterBoxElements() {
+                setTimeout( function() {
+                    if ( $('[id*=twitter]').length ) {
+                        $('[id*=twitter]').each( function(){
+                            var ibody = $(this).contents().find( 'body' );
+
+                            if ( ibody.find( '.timeline .stream .h-feed li.tweet' ).length ) {
+                                //ibody.find( '.customisable-border' ).css( 'border', 0 );
+                                ibody.find('.timeline-header').css('border-bottom', '1px solid #fff').css('padding', '10px 0 9px');
+                                ibody.find('.customisable-highlight').css('color', '#fff').css('font-weight', 'normal').css('font-family', '"Helvetica Neue",Helvetica,Arial,sans-serif');
+                                //ibody.find( '.timeline' ).css( 'background-color', '#004A7B' ); //theme: shell: background:
+                                //ibody.find( 'ol.h-feed' ).css( 'background-color', '#0575A1' ); //theme: tweets: background:
+                                //ibody.find( 'ol.h-feed' ).css( 'border-radius', '5px 5px 5px 5px' );
+                                ibody.find( 'li.tweet' ).css( 'border-bottom', '1px dotted #FFFFFF' ); //theme: tweets: color:
+                                //ibody.find( 'li.tweet' ).css( 'color', '#FFFFFF' ); //theme: tweets: color:
+                                //ibody.find( '.customisable:link' ).css( 'color', '#07E0EB' ); //theme: tweets: links:
+                                ibody.find( '.p-nickname').css( 'color', '#474747' );
+                                ibody.find('.retweet-credit' ).css( 'color', '#474747' );
+                                ibody.find( '.footer' ).css( 'visibility', 'hidden' ); //hide reply, retweet, favorite images
+                                ibody.find( '.footer' ).css( 'min-height', 0 ); //hide reply, retweet, favorite images
+                                ibody.find( '.footer' ).css( 'height', 0 ); //hide reply, retweet, favorite images
+                                //ibody.find( '.avatar' ).css( 'height', 0 ); //hide avatar
+                                //ibody.find( '.avatar' ).css( 'width', 0 ); //hide avatar
+                                //ibody.find( '.p-nickname' ).css( 'font-size', 0 ); //hide @name of tweet
+                                //ibody.find( '.p-nickname' ).css( 'visibility', 'hidden' ); //hide @name of tweet
+                                ibody.find( '.e-entry-content' ).css( 'margin', '-25px 0px 0px 0px' ); //move tweet up (over @name of tweet)
+                                ibody.find( '.dt-updated' ).css( 'color', '#433c2d' ); //theme: tweets: links:
+                                //ibody.find( '.full-name' ).css( 'margin', '0px 0px 0px -35px' ); //move name of tweet to left (over avatar)
+                                //ibody.find( 'h1.summary' ).replaceWith( '<h1 class="summary"><a class="customisable-highlight" title="Tweets from fundSchedule" href="https://twitter.com/fundschedule" style="color: #FFFFFF;">fundSchedule</a></h1>' ); //replace Tweets text at top
+                                ibody.find( '.p-name' ).css( 'color', '#433c2d').css('font-weight', 'bold'); //theme: tweets: links:
+                            }
+                            /*                else {
+                             $(this).hide();
+                             }*/
+                        });
+                    }
+                    hideTwitterAttempts++;
+                    if ( hideTwitterAttempts < 3 ) {
+                        hideTwitterBoxElements();
+                    }
+                }, 1500);
+            }
+
+            // somewhere in your code after html page load
+            hideTwitterBoxElements();
+        </script>
+
     </head>
     <body>
       <!--[if lt IE 9]>
@@ -101,22 +187,23 @@
               <span><img src="images/13297b41.gb.png"></span>
           </div>
           <div class="col-md-12">
-            <img src="images/7913d6e0.logo-en.png" class="img-responsive" alt="Logo StandBy">
+            <img src="images/8ec9aa18.logo-en.png" class="img-responsive" alt="Logo StandBy">
           </div>
         </div>
 
-        <div id="banner" class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <img src="images/1335c248.fireman.png" class="img-responsive firemanImg" alt="Fireman">
+          <div id="banner" class="row">
+              <div class="col-md-8 col-md-offset-2">
+                  <div class="video-container">
+                      <iframe width="560" height="315" src="//www.youtube.com/embed/xJ_MUlHAneQ" frameborder="0" allowfullscreen=""></iframe>
+                  </div>
+              </div>
           </div>
-        </div>
 
-        <div id="tagline" class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <h3>Most of the volunteers at your organisation are combining their activities with a paying job and a private life. This is quite challenging for their availability and readiness.</h3>
-            <a class="btn btn-lg btn-cta" href="#contactform">Contact us</a>
+          <div id="tagline" class="row">
+              <div class="col-md-8 col-md-offset-2">
+                  <a class="btn btn-lg btn-cta popup-youtube lightbox2" href="https://www.youtube.com/watch?v=HkaryQPNcxA">Watch full movie</a>
+              </div>
           </div>
-        </div>
 
         <div id="thumbs" class="row">
           <div class="col-md-10 col-md-offset-1">
@@ -144,36 +231,40 @@
 
         <div class="row info-row titleStyle2">
 
-          <div class="col-md-6 col-md-offset-1 info-pic">
-            <img src="images/06f07a8b.picfather-en.png" class="img-responsive" alt="Father picture">
-          </div>
+            <div class="col-md-6 col-sm-12 info-pic">
+                <img src="images/06f07a8b.picfather-en.png" class="img-responsive" alt="Father picture">
+            </div>
 
-          <div class="col-md-4">
-            <h4>StandBy for<br>public safety</h4>
-            <p>For the (voluntary) first responders of the fire brigade and Search & Rescue (SAR) is StandBy the readiness and communication system that works on both smartphone and smartpager and proactively guards the readiness of the post. On a emergency dispatch level, regional level or state level StandBy shows the current readiness before an incident is reported. StandBy can indepedently communicate by several channels to several distinctive user groups.</p>
-            <p class="knrmCase">KNRM relies already for years on the StandBy availability system to ensure availability of the rescuers needed and within the proximity of the station (Geo-fence). <br> <a href="http://ask-cs.com/cases.html#slide-4" target="_blank">Read more...</a></p>
-          </div>
+            <div class="col-md-3 col-sm-6">
+                <h4>StandBy forpublic safety</h4>
+                <p>For the (voluntary) first responders of the fire brigade and Search & Rescue (SAR) is StandBy the readiness and communication system that works on both smartphone and smartpager and proactively guards the readiness of the post. On a emergency dispatch level, regional level or state level StandBy shows the current readiness before an incident is reported. StandBy can indepedently communicate by several channels to several distinctive user groups.</p>
+            </div>
+
+            <div class="col-md-3 col-sm-6 knrm">
+                <img src="images/f106264d.knrmLogo.png" class="img-responsive" alt="KNRM">
+                <p>Standby has been active at the KNRM for many years. Read all about how the KNRM has enough rescue workers available due to the collaboration.<br><br> <a href="http://ask-cs.com/cases.html#slide-4" target="_blank">Read more...</a></p>
+            </div>
 
         </div>
 
         <div class="row info-row">
 
-          <div class="col-md-4 info">
-            <img src="images/9d9c582a.icons_optimal.png" alt="High availability">
+          <div class="col-md-4 col-sm-4 info">
+            <img src="images/6c2b30cd.icons_optimal.png" alt="High availability">
             <h4>High<br>availability</h4>
             <p>An unexpected meeting or a sick child… Or even the cancellation of a sporting match or finishing work earlier: Unexpected occurrences lead to a change in availability.</p>
             <p>With Standby you can make yourself (un)available via phone, smartphone, pager, tablet, laptop or PC. You can also manage your availability with the Standby-agenda or via Google Calendar, Outlook or iCloud.</p>
           </div>
 
-          <div class="col-md-4 info">
-            <img src="images/89958b0c.icons_minimal.png" alt="High availability">
+          <div class="col-md-4 col-sm-4 info">
+            <img src="images/4ed5c507.icons_minimal.png" alt="High availability">
             <h4>Less<br>pressure</h4>
             <p>In order to keep motivation at its highest and burdens on the volunteers at its lowest, the ‘pressure of organising’ should be minimal. Communicating the availability should be very simple and preferably automatic. </p>
             <p>Thanks to the unique ‘geo-fencing’ feature, Standby automatically modifies the availability based on the geographical location of the volunteer.</p>
           </div>
 
-          <div class="col-md-4 info">
-            <img src="images/a055ed1a.icons_proactive.png" alt="Proactive availability">
+          <div class="col-md-4 col-sm-4 info">
+            <img src="images/c4c08e56.icons_proactive.png" alt="Proactive availability">
             <h4>Proactive<br>availability</h4>
             <p>StandBy monitors the availability of the specific groups with a team continuously. The systems informs volunteers and team leaders if there is a instant shortage or a possible future shortage in one or more groups. Possible available team members are automatically approached by StandBy with the question if they are available during the period of shortage. If no one is available StandBy notifies (escalation) the team leaders about the shortage not solved. The team leaders can decide what measures to be taken.</p>
           </div>
@@ -184,21 +275,18 @@
             <div class="col-md-8 col-md-offset-2">
               <img id="devices-image" src="images/04d81f7e.devices02.png" class="img-responsive" alt="Multi platform devices">
               <div class="info">
-                <img id="devices-icon" src="images/23143bd6.icons_multi.png" alt="Multi platform">
+                <img id="devices-icon" src="images/364d32a0.icons_multi.png" alt="Multi platform">
                 <p>Smartphone, PC, tablet, pager...<br>
                     Standby supports them all! </p>
               </div>
             </div>
         </div>
 
+
         <div class="row info-row">
 
-          <div class="col-md-6 info-pic">
-            <img src="images/640d9437.picresque-en.png" class="img-responsive" alt="Resque in action">
-          </div>
-
-          <div class="col-md-3 info">
-            <img src="images/763e19b5.icons_inzicht.png" alt="Insight in readiness">
+          <div class="col-md-3 col-sm-6 info">
+            <img src="images/635b2f27.icons_inzicht.png" alt="Insight in readiness">
             <h4>Insight in readiness</h4>
             <p>The goal of your organisation is being on site at an incident as fast as possible within the standards. After a report has come in, you alert the right post.</p>
             <p>With Standby, you always have an overview of the readiness of the posts. Standby continuously monitors availability and escalates when there is an insolvable shortage.
@@ -206,13 +294,17 @@
                 trends and bottlenecks with regard to the readiness and overcrowded and understaffed percentage per period.</p>
           </div>
 
-          <div class="col-md-3 info">
-            <img src="images/9beb2307.icons_bespaar.png" alt="Save costs">
+          <div class="col-md-3 col-sm-6 info">
+            <img src="images/64055e53.icons_bespaar.png" alt="Save costs">
             <h4>Save costs</h4>
             <p>Standby saves costs. The administrative expenses will decrease by planning and administering more efficiently. The internal communication costs will also reduce due to usage of the Standby messaging system.</p>
             <p>Moreover, you can conveniently deploy personnel when there are incidents. Through targeted alarming, the right amount of volunteers will be summoned. Finally, the training costs will reduce because volunteers
                 will be active at your organization for a longer period of time. Work and personal life are easier to combine because of the flexibility offered by Standby.</p>
           </div>
+
+            <div class="col-md-6 col-sm-6 info-pic">
+                <img src="images/640d9437.picresque-en.png" class="img-responsive" alt="Resque in action">
+            </div>
 
         </div>
 
@@ -223,20 +315,25 @@
             <a class="btn btn-lg btn-cta downloadBtn col-md-12" href="docs/Safety!SlimVerbindenBijCrisiscommunicatieASK-CommunitySystems.pdf" target="_blank">Article Slim Verbinden</a>
             <a class="btn btn-lg btn-cta downloadBtn col-md-12" href="docs/Whitepaper_zelforganisatie_bij_de_brandweer.pdf" target="_blank">Whitepaper self-organization fire brigade</a>
           </div>
-          <div id="contactform" class="col-md-4">
-            <h4>Contact form</h4>
-            <input id="contactName" class="contactInput col-xs-12" type="text" placeholder="Name">
-            <input id="contactEmail" class="contactInput col-xs-12" type="text" placeholder="Email">
-            <input id="contactSubject" class="contactInput col-xs-12" type="text" placeholder="Subject">
-            <textarea id="message" class="contactTextarea col-xs-12" rows="8" placeholder="Message" name="message">
-            </textarea>
-            <button class="btn btn-lg btn-cta ng-binding col-md-12" type="button" onclick="sendMail()">Send</button>
+          <div id="contactform" class="col-md-4 col-sm-12 row">
+              <div id="normalForm" class="col-md-12 col-sm-6">
+                <h4>Contact form</h4>
+                <input id="contactName" class="contactInput col-xs-12" type="text" placeholder="Name">
+                <input id="contactEmail" class="contactInput col-xs-12" type="text" placeholder="Email">
+                <textarea id="message" class="contactTextarea col-xs-12" rows="8" placeholder="Message" name="message">
+                </textarea>
+                <button class="btn btn-lg btn-cta ng-binding col-md-12" type="button" onclick="sendMail()">Send</button>
+              </div>
+              <div id="callForm" class="col-md-12 col-sm-6">
+                  <h4>Call me back</h4>
+                  <input id="phoneNumber" class="contactInput col-xs-8" type="text" placeholder="Phone number">
+                  <button class="btn btn-lg btn-cta ng-binding col-md-4" type="button" onclick="sendPhoneNumber()">Send</button>
+              </div>
           </div>
-          <div id="twitter" class="col-md-4">
-            <h4>Tweets</h4>
-            <a class="twitter-timeline" href="https://twitter.com/ASK_StandBy" data-widget-id="514075152045182976" data-chrome="transparent noheader nofooter noscrollbar noborders" data-link-color="#FFFFFF">Tweets van @ASK_StandBy</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          </div>
+            <div id="twitter" class="col-md-4">
+                <a class="twitter-timeline" height="600" href="https://twitter.com/ASK_StandBy" data-widget-id="514075152045182976" data-chrome="transparent nofooter noscrollbar noborders" data-link-color="#FFFFFF">Tweets van @ASK_StandBy</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
         </div>
 
         <div class="footer">
@@ -258,7 +355,7 @@
       <!-- Magnific Popup core JS file -->
       <script src="bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
 
-      <script src="scripts/08a0bed2.main.js"></script>
+      <script src="scripts/c7fe00c4.main.js"></script>
 
       <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
