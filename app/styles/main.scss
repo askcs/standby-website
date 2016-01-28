@@ -179,6 +179,24 @@ a, a:hover, a:visited, a:active {
   }
 }
 
+.markets {
+  .market {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    img.photo {
+      width: 100%;
+    }
+    img.icon {
+      margin-top: -30px;
+    }
+    p {
+      padding: 0 20px 20px;
+      text-align: justify;
+    }
+  }
+}
+
 .knrmCase {
   font-style: italic;
 }
