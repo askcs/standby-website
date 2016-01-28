@@ -258,7 +258,8 @@ module.exports = function (grunt) {
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
                         'newsletter/{,*/}*.*',
-                        'bower_components/*/{,*/}*.*'
+                        'bower_components/*/{,*/}*.*',
+                        'mail/*'
                     ]
                 }]
             },
